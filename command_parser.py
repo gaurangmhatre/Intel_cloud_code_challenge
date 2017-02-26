@@ -1,5 +1,7 @@
 import subprocess
 import time
+from db import session, engine
+from base import Base, Command
 
 """
 Handles the work of validating and processing command input.
@@ -50,10 +52,9 @@ def get_valid_commands(queue, fi):
         print commandLength
         print CommandTimeTaken
 
-
-
-
-
+        ed_commands= Command(CommandString,commandLength, CommandTimeTaken,commandResult)
+        session.add(ed_commands)
+    session.commit()
 
 
     queue.put(command)
