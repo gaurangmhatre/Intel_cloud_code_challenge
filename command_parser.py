@@ -1,3 +1,5 @@
+import subprocess
+
 """
 Handles the work of validating and processing command input.
 """
@@ -30,7 +32,17 @@ def get_valid_commands(queue, fi):
     #Get all the valid commands
     validCommandsFromInput = set(commandList) & set(validList)
 
-    
+
+    conn = sqlite3.connect('commands.db')
+    c = conn.cursor()
+    for item in my_list:
+
+
+    for command in validCommandsFromInput:
+        commandResult = subprocess.check_output('ps -ef | '+command, shell=True)
+        c.execute('insert into tablename values (?,?,?)', item)
+
+
     queue.put(command)
 
 
