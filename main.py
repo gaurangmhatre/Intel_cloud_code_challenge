@@ -28,10 +28,7 @@ def get_command_output():
         description: Commands not found
     """
 
-    commands = session.query(Command)
-
     # TODO: format the query result
-    # return jsonify(commands)
     return 'Operation in process.'
 
 @app.route('/commands', methods=['POST'])
@@ -50,16 +47,18 @@ def process_commands():
       200:
         description: Processing OK
     """
-    fi = request.args.get('filename')
-
     queue = Queue()
-    get_valid_commands(queue, fi)
+    get_valid_commands(queue, 'commands.txt')
+
+    """
     processes = [Process(target=process_command_output, args=(queue,))
                  for num in range(2)]
     for process in processes:
         process.start()
     for process in processes:
         process.join()
+    """
+
     return 'Successfully processed commands.'
 
 
@@ -138,3 +137,8 @@ def swagger_spec():
         {"name": "commands", "description": "process and retrieve commands"}
     ]
     return jsonify(spec)
+
+
+
+
+
