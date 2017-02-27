@@ -5,7 +5,8 @@ command details as well as a swagger spec endpoint
 
 from multiprocessing import Process, Queue
 import sys
-from flask import Flask, request, jsonify
+import json
+from flask import Flask, request, jsonify, Response
 from flask_swagger import swagger
 
 from db import session, engine
@@ -28,12 +29,24 @@ def get_command_output():
         description: Commands not found
     """
     queue = Queue()
-    return process_command_output(queue)
 
-
-
+    commandList = process_command_output(queue)
+    res = []
     # TODO: format the query result
-    #return 'Operation in process.'
+    if commandList is not None:
+        for command in commandList:
+            res.append({"Command_string": command.command_string,
+                   "length":command.length,
+                   "duration":command.duration,
+                   "output":command.output
+                   })
+
+        jres= Response(response=json.dumps(res), status=201, mimetype="application/json")
+        jres.status_code = 200
+    else:
+        jres = Response(status=400)
+    return jres
+
 
 @app.route('/commands', methods=['POST'])
 def process_commands():
@@ -51,8 +64,11 @@ def process_commands():
       200:
         description: Processing OK
     """
+
+    temp_expns = request.get_json(force = True )
+    filename = temp_expns['filename']
     queue = Queue()
-    get_valid_commands(queue, 'commands.txt')
+    status = get_valid_commands(queue, filename)
 
     """
     processes = [Process(target=process_command_output, args=(queue,))
@@ -63,7 +79,11 @@ def process_commands():
         process.join()
     """
 
-    return 'Successfully processed commands.'
+    if status is 200:
+        jres = Response(status=200)
+    else:
+        jres = Response(status=400)
+    return jres
 
 
 @app.route('/database', methods=['POST'])
@@ -91,6 +111,13 @@ def drop_db():
         description: DB table drop OK
     """
     Base.metadata.drop_all(engine)
+    # if status is 200:
+    #     jres = Response(status=200)
+    # else:
+    #     jres = Response(status=400)
+    #
+    # return jres
+
     return 'Database deletion successful.'
 
 
