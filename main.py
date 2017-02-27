@@ -27,9 +27,13 @@ def get_command_output():
       400:
         description: Commands not found
     """
+    queue = Queue()
+    return process_command_output(queue)
+
+
 
     # TODO: format the query result
-    return 'Operation in process.'
+    #return 'Operation in process.'
 
 @app.route('/commands', methods=['POST'])
 def process_commands():

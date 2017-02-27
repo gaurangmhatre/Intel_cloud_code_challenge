@@ -35,11 +35,6 @@ def get_valid_commands(queue, fi):
     #Get all the valid commands
     validCommandsFromInput = set(commandList) & set(validList)
 
-    #commandResult = subprocess.check_output('ps -ef | '+command, shell=True)
-
-    # c = conn.cursor()
-    # for item in my_list:
-
     for command in validCommandsFromInput:
         start = time.time()
         commandResult = subprocess.check_output('ps -ef | '+command, shell=True)
@@ -52,17 +47,20 @@ def get_valid_commands(queue, fi):
         print commandLength
         print CommandTimeTaken
 
-        ed_commands= Command(CommandString,commandLength, CommandTimeTaken,commandResult)
+        ed_commands = Command(CommandString, commandLength, CommandTimeTaken, commandResult)
         session.add(ed_commands)
     session.commit()
 
 
-    queue.put(command)
+    #queue.put(command)
 
 
 def process_command_output(queue):
     # TODO: run the command and put its data in the db
 
-    command = queue.get()
+    for command in Command:
+        commandList= command
+
+    return commandList
 
 
