@@ -35,7 +35,7 @@ def get_valid_commands(queue, fi, file_data):
             commandFlag = False
             validFlag = True
 
-        if '[COMMAND LIST]' not in line and '[VALID COMMANDS]' not in line and line.rstrip() <> '':
+        if '[COMMAND LIST]' not in line and '[VALID COMMANDS]' not in line and line.rstrip() != '':
             if commandFlag :
                 commandList.append(line.rstrip())
             elif validFlag :
@@ -48,28 +48,32 @@ def get_valid_commands(queue, fi, file_data):
         try:
             start = time.time()
             #commandResult = subprocess.check_output(command, shell=True)
-            commandResult = subprocess.check_output(command, shell=True, stderr=STDOUT, timeout=60 )
+            commandResult = subprocess.check_output(command, shell=True, stderr=STDOUT, timeout=1 )
             CommandTimeTaken = (time.time() - start)
 
 
             CommandString = command
             commandLength = len(command)
-            print commandResult
-            print CommandString
-            print commandLength
-            print CommandTimeTaken
+            print(commandResult)
+            print(CommandString)
+            print(commandLength)
+            print(CommandTimeTaken)
 
             # Check if the commad is already in Table
             flag = session.query(Command).filter_by(output=commandResult).first()
 
             if flag:
-                print 'Command : "', command, '" is alredy in commands table'
+                print('Command : "', command, '" is alredy in commands table')
             else:
                 ed_commands = Command(CommandString, commandLength, CommandTimeTaken, commandResult)
                 session.add(ed_commands)
                 session.commit()
         except subprocess.CalledProcessError as err:
-            print 'handling err: ', err, ' for command: ', command
+            print('Handling CalledProcessError: ', err, ' for command: ', command)
+            continue
+        except subprocess.TimeoutExpired as err:
+            print('Handling TimeoutExpired: ', err, ' for command: ', command)
+            continue
     return 200
 
 
