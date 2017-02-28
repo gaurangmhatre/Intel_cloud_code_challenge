@@ -4,6 +4,7 @@
     <list default="true" id="2a7555d1-a9fa-42b7-ad79-ddb4ab02d3fa" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/command_parser.py" afterPath="$PROJECT_DIR$/command_parser.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commands.txt" afterPath="$PROJECT_DIR$/commands.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Intel_cloud_code_challenge$Intel_cloud_code_challenge.coverage" NAME="Intel_cloud_code_challenge Coverage Results" MODIFIED="1488250218278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Intel_cloud_code_challenge$Intel_cloud_code_challenge.coverage" NAME="Intel_cloud_code_challenge Coverage Results" MODIFIED="1488254239363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -46,8 +47,8 @@
       <file leaf-file-name="command_parser.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/command_parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="42" column="12" lean-forward="false" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
+            <state relative-caret-position="304">
+              <caret line="22" column="39" lean-forward="true" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -58,14 +59,14 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="30" />
+            <state relative-caret-position="18">
+              <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
               <folding>
-                <element signature="e#1397#2222#0" expanded="false" />
-                <element signature="e#2286#2490#0" expanded="false" />
-                <element signature="e#2556#2893#0" expanded="false" />
-                <element signature="e#2927#3306#0" expanded="false" />
-                <element signature="e#3392#4283#0" expanded="false" />
+                <element signature="e#126#168#0" expanded="true" />
+                <element signature="e#2339#2543#0" expanded="false" />
+                <element signature="e#2609#2946#0" expanded="false" />
+                <element signature="e#2980#3359#0" expanded="false" />
+                <element signature="e#3445#4336#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -102,8 +103,8 @@
       <file leaf-file-name="commands.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commands.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="304">
+              <caret line="27" column="2" lean-forward="false" selection-start-line="27" selection-start-column="2" selection-end-line="27" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -840,12 +841,12 @@
       <workItem from="1488129340893" duration="13313000" />
       <workItem from="1488221429864" duration="5300000" />
       <workItem from="1488233969093" duration="4681000" />
-      <workItem from="1488248009963" duration="2460000" />
+      <workItem from="1488248009963" duration="6011000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52254000" />
+    <option name="totallyTimeSpent" value="55805000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1417" y="-744" width="1315" height="744" extended-state="6" />
@@ -922,28 +923,48 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>98</line>
+          <line>100</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>99</line>
+          <line>101</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/command_parser.py</url>
-          <line>44</line>
+          <line>51</line>
           <option name="timeStamp" value="71" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/command_parser.py</url>
-          <line>42</line>
+          <line>49</line>
           <option name="timeStamp" value="72" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/command_parser.py</url>
-          <line>41</line>
+          <line>48</line>
           <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/command_parser.py</url>
+          <line>22</line>
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/command_parser.py</url>
+          <line>26</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/command_parser.py</url>
+          <line>24</line>
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/command_parser.py</url>
+          <line>21</line>
+          <option name="timeStamp" value="80" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -953,7 +974,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="74" />
+      <option name="time" value="81" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -973,11 +994,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1397#2222#0" expanded="false" />
-            <element signature="e#2286#2490#0" expanded="false" />
-            <element signature="e#2556#2893#0" expanded="false" />
-            <element signature="e#2927#3306#0" expanded="false" />
-            <element signature="e#3392#4283#0" expanded="false" />
+            <element signature="e#126#168#0" expanded="true" />
+            <element signature="e#2339#2543#0" expanded="false" />
+            <element signature="e#2609#2946#0" expanded="false" />
+            <element signature="e#2980#3359#0" expanded="false" />
+            <element signature="e#3445#4336#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1046,11 +1067,11 @@
         <state relative-caret-position="306">
           <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <element signature="e#1397#2222#0" expanded="false" />
-            <element signature="e#2286#2490#0" expanded="false" />
-            <element signature="e#2556#2893#0" expanded="false" />
-            <element signature="e#2927#3306#0" expanded="false" />
-            <element signature="e#3392#4283#0" expanded="false" />
+            <element signature="e#126#168#0" expanded="true" />
+            <element signature="e#2339#2543#0" expanded="false" />
+            <element signature="e#2609#2946#0" expanded="false" />
+            <element signature="e#2980#3359#0" expanded="false" />
+            <element signature="e#3445#4336#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1123,11 +1144,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1397#2222#0" expanded="false" />
-            <element signature="e#2286#2490#0" expanded="false" />
-            <element signature="e#2556#2893#0" expanded="false" />
-            <element signature="e#2927#3306#0" expanded="false" />
-            <element signature="e#3392#4283#0" expanded="false" />
+            <element signature="e#126#168#0" expanded="true" />
+            <element signature="e#2339#2543#0" expanded="false" />
+            <element signature="e#2609#2946#0" expanded="false" />
+            <element signature="e#2980#3359#0" expanded="false" />
+            <element signature="e#3445#4336#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1136,6 +1157,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5292">
           <caret line="294" column="0" lean-forward="false" selection-start-line="294" selection-start-column="0" selection-end-line="294" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1168,11 +1190,11 @@
         <state relative-caret-position="810">
           <caret line="45" column="7" lean-forward="true" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
           <folding>
-            <element signature="e#1397#2222#0" expanded="false" />
-            <element signature="e#2286#2490#0" expanded="false" />
-            <element signature="e#2556#2893#0" expanded="false" />
-            <element signature="e#2927#3306#0" expanded="false" />
-            <element signature="e#3392#4283#0" expanded="false" />
+            <element signature="e#126#168#0" expanded="true" />
+            <element signature="e#2339#2543#0" expanded="false" />
+            <element signature="e#2609#2946#0" expanded="false" />
+            <element signature="e#2980#3359#0" expanded="false" />
+            <element signature="e#3445#4336#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1212,11 +1234,11 @@
         <state relative-caret-position="1026">
           <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
           <folding>
-            <element signature="e#1397#2222#0" expanded="false" />
-            <element signature="e#2286#2490#0" expanded="false" />
-            <element signature="e#2556#2893#0" expanded="false" />
-            <element signature="e#2927#3306#0" expanded="false" />
-            <element signature="e#3392#4283#0" expanded="false" />
+            <element signature="e#126#168#0" expanded="true" />
+            <element signature="e#2339#2543#0" expanded="false" />
+            <element signature="e#2609#2946#0" expanded="false" />
+            <element signature="e#2980#3359#0" expanded="false" />
+            <element signature="e#3445#4336#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1243,11 +1265,11 @@
         <state relative-caret-position="1026">
           <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
           <folding>
-            <element signature="e#1397#2222#0" expanded="false" />
-            <element signature="e#2286#2490#0" expanded="false" />
-            <element signature="e#2556#2893#0" expanded="false" />
-            <element signature="e#2927#3306#0" expanded="false" />
-            <element signature="e#3392#4283#0" expanded="false" />
+            <element signature="e#126#168#0" expanded="true" />
+            <element signature="e#2339#2543#0" expanded="false" />
+            <element signature="e#2609#2946#0" expanded="false" />
+            <element signature="e#2980#3359#0" expanded="false" />
+            <element signature="e#3445#4336#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1314,6 +1336,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="1993" column="0" lean-forward="false" selection-start-line="1993" selection-start-column="0" selection-end-line="1993" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1321,6 +1344,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4878">
           <caret line="294" column="0" lean-forward="false" selection-start-line="294" selection-start-column="0" selection-end-line="294" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1357,31 +1381,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SECOND">
-          <first_editor relative-caret-position="18">
-            <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="30" />
-          <folding>
-            <element signature="e#1397#2222#0" expanded="false" />
-            <element signature="e#2286#2490#0" expanded="false" />
-            <element signature="e#2556#2893#0" expanded="false" />
-            <element signature="e#2927#3306#0" expanded="false" />
-            <element signature="e#3392#4283#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/6d282386/b437fde1-a6b7-4eb9-9d84-b7d006ccee3d/commands">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1395,18 +1394,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SECOND">
+          <first_editor relative-caret-position="18">
+            <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/commands.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="304">
+          <caret line="27" column="2" lean-forward="false" selection-start-line="27" selection-start-column="2" selection-end-line="27" selection-end-column="2" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+          <folding>
+            <element signature="e#126#168#0" expanded="true" />
+            <element signature="e#2339#2543#0" expanded="false" />
+            <element signature="e#2609#2946#0" expanded="false" />
+            <element signature="e#2980#3359#0" expanded="false" />
+            <element signature="e#3445#4336#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/command_parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="42" column="12" lean-forward="false" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
+        <state relative-caret-position="304">
+          <caret line="22" column="39" lean-forward="true" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>

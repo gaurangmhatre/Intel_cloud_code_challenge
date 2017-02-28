@@ -1,6 +1,6 @@
 import subprocess
 import time
-import json
+import os
 from db import session, engine
 from base import Base, Command
 from subprocess import STDOUT
@@ -10,12 +10,19 @@ Handles the work of validating and processing command input.
 """
 
 
-def get_valid_commands(queue, fi):
+def get_valid_commands(queue, fi, file_data):
     # TODO: efficiently evaluate commands
 
+
     # File processing for getting COMMAND LIST and VALID COMMANDS
-    with open("/home/gaurang/Downloads/GitRepo/IntelCode/MySolution/Intel_cloud_code_challenge/"+fi, "r") as fh:
-       CommandLine = fh.readlines()
+
+    script_dir = os.path.dirname(__file__)
+    path = os.path.join(script_dir, fi)
+    try:
+        with open(path, "r") as fh:
+           CommandLine = fh.readlines()
+    except IOError as err:
+        CommandLine = file_data
 
     commandList=[]
     validList=[]
@@ -40,8 +47,8 @@ def get_valid_commands(queue, fi):
     for command in validCommandsFromInput:
         try:
             start = time.time()
-            commandResult = subprocess.check_output(command, shell=True)
-            #commandResult = subprocess.check_output(command, shell=True, stderr=STDOUT, timeout=60 )
+            #commandResult = subprocess.check_output(command, shell=True)
+            commandResult = subprocess.check_output(command, shell=True, stderr=STDOUT, timeout=60 )
             CommandTimeTaken = (time.time() - start)
 
 

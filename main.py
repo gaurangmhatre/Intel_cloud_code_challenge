@@ -67,8 +67,10 @@ def process_commands():
 
     temp_expns = request.get_json(force = True )
     filename = temp_expns['filename']
+    file_data =  temp_expns['file_data']
+
     queue = Queue()
-    status = get_valid_commands(queue, filename)
+    status = get_valid_commands(queue, filename, file_data)
 
     """
     processes = [Process(target=process_command_output, args=(queue,))
