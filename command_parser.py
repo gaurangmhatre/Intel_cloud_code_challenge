@@ -3,7 +3,7 @@ import time
 import json
 from db import session, engine
 from base import Base, Command
-
+from subprocess import STDOUT
 
 """
 Handles the work of validating and processing command input.
@@ -38,27 +38,31 @@ def get_valid_commands(queue, fi):
     validCommandsFromInput = set(commandList) & set(validList)
 
     for command in validCommandsFromInput:
-        start = time.time()
-        commandResult = subprocess.check_output(command, shell=True)
-        CommandTimeTaken = (time.time() - start)
+        try:
+            start = time.time()
+            commandResult = subprocess.check_output(command, shell=True)
+            #commandResult = subprocess.check_output(command, shell=True, stderr=STDOUT, timeout=60 )
+            CommandTimeTaken = (time.time() - start)
 
-        CommandString = command
-        commandLength = len(command)
-        print commandResult
-        print CommandString
-        print commandLength
-        print CommandTimeTaken
 
-        # Check if the commad is already in Table
-        flag = session.query(Command).filter_by(output=commandResult).first()
+            CommandString = command
+            commandLength = len(command)
+            print commandResult
+            print CommandString
+            print commandLength
+            print CommandTimeTaken
 
-        if flag:
-            print 'same query'
-        else:
-            ed_commands = Command(CommandString, commandLength, CommandTimeTaken, commandResult)
-            session.add(ed_commands)
-            session.commit()
+            # Check if the commad is already in Table
+            flag = session.query(Command).filter_by(output=commandResult).first()
 
+            if flag:
+                print 'Command : "', command, '" is alredy in commands table'
+            else:
+                ed_commands = Command(CommandString, commandLength, CommandTimeTaken, commandResult)
+                session.add(ed_commands)
+                session.commit()
+        except subprocess.CalledProcessError as err:
+            print 'handling err: ', err, ' for command: ', command
     return 200
 
 
