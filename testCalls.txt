@@ -1,0 +1,15 @@
+::POST
+http://127.0.0.1:8080/commands
+{
+    "filename":"commands.txt",
+	"file_data":"[COMMAND LIST]\n pwd \n [VALID COMMANDS] \n pwd"
+}
+
+::GET
+http://127.0.0.1:8080/commands
+
+::POST
+http://127.0.0.1:8080/database
+
+::DELETE
+http://127.0.0.1:8080/database
