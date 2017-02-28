@@ -2,19 +2,16 @@
 Details the various flask endpoints for processing and retrieving
 command details as well as a swagger spec endpoint
 """
-
-from multiprocessing import Process, Queue
 import sys
 import json
 from flask import Flask, request, jsonify, Response
 from flask_swagger import swagger
-
-from db import session, engine
-from base import Base, Command
+from db import engine
+from base import Base
 from command_parser import get_valid_commands, process_command_output
+from multiprocessing import Process, Queue
 
 app = Flask(__name__)
-
 
 @app.route('/commands', methods=['GET'])
 def get_command_output():
@@ -36,11 +33,10 @@ def get_command_output():
     if commandList is not None:
         for command in commandList:
             res.append({"Command_string": command.command_string,
-                   "length":command.length,
-                   "duration":command.duration,
-                   "output":command.output
+                           "length":command.length,
+                           "duration":command.duration,
+                           "output":command.output
                    })
-
         jres= Response(response=json.dumps(res), status=201, mimetype="application/json")
         jres.status_code = 200
     else:
@@ -64,22 +60,12 @@ def process_commands():
       200:
         description: Processing OK
     """
-
     temp_expns = request.get_json(force = True )
     filename = temp_expns['filename']
-    file_data =  temp_expns['file_data']
+    file_data = temp_expns['file_data']
 
     queue = Queue()
     status = get_valid_commands(queue, filename, file_data)
-
-    """
-    processes = [Process(target=process_command_output, args=(queue,))
-                 for num in range(2)]
-    for process in processes:
-        process.start()
-    for process in processes:
-        process.join()
-    """
 
     if status is 200:
         jres = Response(status=200)
@@ -99,7 +85,9 @@ def make_db():
         description: DB Creation OK
     """
     Base.metadata.create_all(engine)
-    return 'Database creation successful.'
+
+    jres = Response(response=json.dumps({"Status": 200}), status=201, mimetype="application/json")
+    return jres
 
 
 @app.route('/database', methods=['DELETE'])
@@ -113,14 +101,8 @@ def drop_db():
         description: DB table drop OK
     """
     Base.metadata.drop_all(engine)
-    # if status is 200:
-    #     jres = Response(status=200)
-    # else:
-    #     jres = Response(status=400)
-    #
-    # return jres
-
-    return 'Database deletion successful.'
+    jres = Response(response=json.dumps({"Status": 200}), status=201, mimetype="application/json")
+    return jres
 
 
 if __name__ == '__main__':

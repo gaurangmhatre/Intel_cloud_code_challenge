@@ -1,8 +1,8 @@
 import subprocess
 import time
 import os
-from db import session, engine
-from base import Base, Command
+from db import session
+from base import Command
 from subprocess import STDOUT
 
 """
@@ -13,9 +13,7 @@ Handles the work of validating and processing command input.
 def get_valid_commands(queue, fi, file_data):
     # TODO: efficiently evaluate commands
 
-
     # File processing for getting COMMAND LIST and VALID COMMANDS
-
     script_dir = os.path.dirname(__file__)
     path = os.path.join(script_dir, fi)
     try:
@@ -26,7 +24,6 @@ def get_valid_commands(queue, fi, file_data):
 
     commandList=[]
     validList=[]
-
     for line in CommandLine:
         if '[COMMAND LIST]' in line:
             commandFlag = True
@@ -46,11 +43,15 @@ def get_valid_commands(queue, fi, file_data):
 
     for command in validCommandsFromInput:
         try:
-            start = time.time()
-            #commandResult = subprocess.check_output(command, shell=True)
-            commandResult = subprocess.check_output(command, shell=True, stderr=STDOUT, timeout=1 )
-            CommandTimeTaken = (time.time() - start)
 
+            try:
+                start = time.time()
+                commandResult = subprocess.check_output(command, shell=True, stderr=STDOUT, timeout=60 )
+                CommandTimeTaken = (time.time() - start)
+            except subprocess.TimeoutExpired as err:
+                print('Handling TimeoutExpired: ', err, ' for command: ', command)
+                CommandTimeTaken = 0  # (if the command takes > 1 minute to complete, mark a 0 which will represent "Not finished")
+                commandResult = b''
 
             CommandString = command
             commandLength = len(command)
@@ -60,7 +61,7 @@ def get_valid_commands(queue, fi, file_data):
             print(CommandTimeTaken)
 
             # Check if the commad is already in Table
-            flag = session.query(Command).filter_by(output=commandResult).first()
+            flag = session.query(Command).filter_by(command_string=CommandString).first()
 
             if flag:
                 print('Command : "', command, '" is alredy in commands table')
@@ -71,17 +72,13 @@ def get_valid_commands(queue, fi, file_data):
         except subprocess.CalledProcessError as err:
             print('Handling CalledProcessError: ', err, ' for command: ', command)
             continue
-        except subprocess.TimeoutExpired as err:
-            print('Handling TimeoutExpired: ', err, ' for command: ', command)
-            continue
+
     return 200
 
 
 def process_command_output(queue):
     # TODO: run the command and put its data in the db
-    # commandList = session.query(Command).get(1)
     commandList = session.query(Command).all()
-
     return commandList
 
 
